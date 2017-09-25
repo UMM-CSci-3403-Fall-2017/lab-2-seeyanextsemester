@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
 #include "palindrome.h"
 
 char* str_reverse(char* str) {
@@ -9,7 +8,7 @@ char* str_reverse(char* str) {
   char* result;
 
   len = strlen(str);
-  result = (char*) calloc(len+1, sizeof(char));
+  result = (char*)calloc(len+1, sizeof(char));
   for (i=0; i<len; ++i) {
     result[i] = str[len-i-1];
   }
@@ -33,13 +32,15 @@ char* palindrome(char* str) {
     ++i;
   }
 
+ free(rev);
+
   if (result) {
     answer = (char*) calloc(4, sizeof(char));
     answer[0] = 'Y';
     answer[1] = 'e';
     answer[2] = 's';
     answer[3] = '\0';
-  } else {
+  } else { 
     answer = (char*) calloc(3, sizeof(char));
     answer[0] = 'N';
     answer[1] = 'o';
@@ -47,4 +48,5 @@ char* palindrome(char* str) {
   }
 
   return answer;
+  
 }
